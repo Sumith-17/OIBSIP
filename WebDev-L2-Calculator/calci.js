@@ -91,7 +91,17 @@ function calculate()
             if(currNum==="*")
                 result=prevNum * nextNum
             else 
-                result=prevNum / nextNum
+            {
+                if(nextNum===0)
+                {
+                    displayEl.textContent="Error"
+                    return;
+                }
+                else
+                    result=prevNum / nextNum
+
+            }
+                
 
             newTokens[newTokens.length-1] = result;
 
