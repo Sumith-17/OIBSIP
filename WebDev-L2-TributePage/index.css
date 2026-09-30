@@ -6,7 +6,15 @@
 html{
     scroll-behavior: smooth;
 }
-
+h1,
+h2,
+h3,
+p,
+a,
+span,
+blockquote {
+    margin: 0;
+}
 
 :root{
     --background: #f1ede4;
@@ -23,6 +31,8 @@ body{
     color: var(--text);
     font-family:Arial,sans-serif;
     line-height:1.6;
+     -webkit-font-smoothing: antialiased;
+     overflow-x: hidden;
 
 }
 .site_header{
@@ -69,7 +79,7 @@ body{
 
 .hero{
     width:min(1200px,90%);
-    min-height: calc(100vh-80px);
+    min-height: calc(100vh - 80px);
     margin:0 auto;
 
     display:flex;
@@ -83,6 +93,7 @@ body{
 .hero_content{
     flex:1;
     max-width:650px;
+    min-width: 0;
 }
 .hero_label{
     margin-bottom: 20px;
@@ -95,13 +106,13 @@ body{
 }
 
 .hero_content h1{
-    color:var(--text);
+    color: var(--text);
 
     font-family: Georgia, 'Times New Roman', serif;
-    font-size:clamp(4rem,8vw,8rem);
+    font-size: clamp(4rem, 5.5vw, 7rem);
     font-weight: 400;
-    line-height:0.9;
-    letter-spacing:0.02em;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
 }
 .hero_dates{
@@ -138,18 +149,82 @@ body{
     background-color: var(--text);
     transform: translateY(-3px);
 }
-.hero_image{
-    flex:0 0 400px;
-    height:520px;
+.hero_image {
+    position: relative;
+    flex: 0 0 500px;
 }
 
-.hero_image img{
+.hero_image img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+    border: 1px solid var(--border);
+}
+
+.hero_image::after{
+    content: "";
+    position:absolute;
+
+    top:18px;
+    left:18px;
+
     width:100%;
     height:100%;
-    display: block;
-    object-fit: cover;
 
-    filter:grayscale(100%);
+    border:1px solid var(--accent);
+
+    pointer-events: none;
+}
+.quote_overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background-color: rgba(36, 32, 28, 0.88);
+
+    color: var(--white);
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+.quote_overlay p {
+    max-width: 380px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+    line-height: 1.25;
+}
+.quote_overlay span {
+    margin-top: 18px;
+
+    color: #c9c0b2;
+
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}
+.hero_image{
+    cursor:pointer;
+}
+.hero_image.show_quote .quote_overlay {
+    opacity: 1;
+    visibility: visible;
 }
 .section_heading{
     max-width:700px;
@@ -162,6 +237,17 @@ body{
     font-size:0.75rem;
     font-weight: 700;
     letter-spacing: o.18em;
+    display:flex;
+    align-items: center;
+    gap:12px;
+}
+.section_label::before {
+    content: "";
+
+    width: 30px;
+    height: 1px;
+
+    background-color: var(--accent);
 }
 .section_heading h2{
     font-family: Georgia, 'Times New Roman', serif;
@@ -178,21 +264,29 @@ body{
 
 .about_content{
     max-width:850px;
+    width:100%;
     display:grid;
     gap:28px;
 }
 
 .about_content p{
+    width:100%;
+    max-width:850px;
     color:var(--muted_text);
     font-size:1.15rem;
     line-height:1.8;
 }
 .timeline_section{
-    width:min(1200px,90%);
+    width:100%;
     margin:0 auto;
 
     padding:140px 0;
+    background-color: var(--surface);
 
+}
+.section_inner{
+    width:min(1200px,90%);
+    margin:0 auto;
 }
 .timeline{
     position:relative;
@@ -421,6 +515,12 @@ body{
     color:var(--muted_text);
     font-size:0.85rem;
 }
+.about_section,
+.timeline_section,
+.works_section,
+.legacy_section {
+    border-top: 1px solid var(--border);
+}
 
 @media (max-width: 700px) {
 
@@ -441,25 +541,33 @@ body{
 
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
 
     .hero {
+        display: flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: center;
 
         gap: 60px;
-
-        padding: 80px 0;
     }
 
     .hero_content {
-        max-width: none;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero_content h1 {
+        max-width: 100%;
     }
 
     .hero_image {
-        width: 100%;
-        flex: none;
+        width: calc(100% - 18px);
+        max-width: 500px;
         height: 500px;
+
+        flex: none;
     }
 
 }
@@ -509,4 +617,10 @@ body{
         padding: 90px 0;
     }
 
+}
+
+.nav_links a:focus-visible,
+.hero_button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
 }
