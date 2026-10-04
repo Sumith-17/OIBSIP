@@ -99,13 +99,21 @@ body{
     border-radius: 8px;
     padding:8px;
 }
-#complete_btn{
+.complete_btn{
     background-color:var(--complete);
 }
-#edit_btn{
+.edit_btn{
     background-color:var(--edit);
 }
-#delete_btn{
+.delete_btn{
     background-color: var(--delete) ;
 }
-
+.task p{
+    font-size:0.9em;
+    font-weight:400;
+    color:var(--pri-text)
+}
+.completed p {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
