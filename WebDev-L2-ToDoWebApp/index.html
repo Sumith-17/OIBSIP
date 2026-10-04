@@ -8,36 +8,54 @@
         <link rel="stylesheet" href="index.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Rammetto+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Rammetto+One&display=swap" rel="stylesheet">
+
     </head>
     <body>
 
-        <div class="main_card">
-            <div class="title">
-                <h2>TO DO LIST</h2>
-            </div>
-            <div class="input_area">
-                <input type="text" placeholder="enter any task....." id="input">
-                <button id=task_btn>ADD TASK</button>
-            </div>
+        <main class="main_card">
 
-            <div class="lists" id="all_list">
-                <h5>Pending Tasks</h5>
-                    <p id="pending_count"</p>
-                         <p id="pending_empty">No pending tasks yet.</p>
-                <div class="pending_list" id="pending">
-                   
-                 </div>
-                 <h5>Completed Tasks</h5>
-                     <p id="completed_count"></p>
-                     <p id="completed_empty">No completed tasks yet.</p>
-                <div class="completed_list" id="completed">
-                     
-                </div>
+            <header class="title">
+                <span class="title_badge">TASK MANAGER</span>
+                <h1>My To-DO List</h1>
+                <p>Keep your tasks organized and stay productive</p>
+            </header>
+
+            <div class="input_area">
+                <input type="text" id="input" placeholder="Enter your task...." autocomplete="off">
+
+                <button id="task_btn">Add Task</button>
             </div>
             
-        </div>
+            <div class="lists" id="all_list">
+                <section class="task_section">
+                    <div class="section_header">
+                        <div>
+                            <h2>Pending Tasks</h2>
+                            <p id="pending_count">Pending: 0</p>
+                        </div>
+                          <span class="section_dot pending_dot"></span>
+
+                    </div>
+                    <p class="pending_list" id="pending"></p>
+                </section>
+                <section class="task_section">
+                    <div class="section_header">
+                        <div>
+                            <h2>Completed Tasks</h2>
+                            <p id="completed_count">Completed: 0</p>
+                        </div>
+                        <span class="section_dot completed_dot"></span>
+
+                    </div>
+                    <p class="empty_message" id="completed_empty">
+                        No completed tasks yet.
+                    </p>
+                    <div class="completed_list" id="completed"></div>
+                </section>
+            </div>
+        </main>
 
 
 

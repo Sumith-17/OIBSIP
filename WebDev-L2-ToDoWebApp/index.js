@@ -12,8 +12,13 @@ const completedCount=document.getElementById("completed_count")
 
 const pendingEmpty = document.getElementById("pending_empty")
 const completedEmpty = document.getElementById("completed_empty")
-let taskList=[]
+
 addTask.addEventListener("click",()=>{
+    
+    if(inputEl.value.trim()==="")
+    {
+        return;
+    }
     
     pendingList.innerHTML += ` <div  class="task" >
                     
@@ -25,8 +30,9 @@ addTask.addEventListener("click",()=>{
                     </div>
                 </div>
     `
-    taskList.push(inputEl.value)
-    console.log(taskList)
+    
+
+    inputEl.value=""
     updateTaskCount();
    
 
