@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuthFlow | Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <body class="dashboard_body">
+        <main class="dashboard">
+            <header class="dashboard_header">
+                <h1>AuthFlow</h1>
+
+                <button class="btn logout_btn" id="logout-btn" type="button">Logout</button>
+            </header>
+
+            <section class="welcome_section">
+                <p class="eyebrow">YOUR DASHBOARD</p>
+                <h2>Welcome back!</h2>
+                <p>Manage your account from one place.</p>
+            </section>
+
+            <section class="dashboard_grid">
+                <article class="dashboard_card">
+                    <h3>Account Status</h3>
+                    <p class="status">
+                        <span class="status_dot"></span>
+                        Active
+                    </p>
+                    <p class="card_description">
+                        Your account overview
+                    </p>
+                </article>
+
+                <article class="dashboard_card">
+                    <h3>Profile</h3>
+                    <p id="profile-username">Username: --</p>
+                    <p id="profile-email">Email: --</p>
+                </article>
+            </section>
+           
+        </main>
+         <footer class="dashboard_footer">
+                AuthFlow <span>&middot</span> Account Management
+            </footer>
+    </body>
+</body>
+</html>
